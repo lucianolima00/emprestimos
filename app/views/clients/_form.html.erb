@@ -1,0 +1,29 @@
+<%= simple_form_for(@client) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+  	<div class="row">
+  		<div class="col-xs-12 col-sm-6">
+		    <%= f.input :name %>
+		    <%= f.input :address %>
+		    <%= f.input :work_address %>
+  		</div>
+  		<div class="col-xs-12 col-sm-6">
+			  <h3>Telefones</h3>
+			  <div id="phones">
+			    <%= f.simple_fields_for :phones do |phone| %>
+
+			      <%= render 'phone_fields', f: phone %>
+			    	<div class="links">
+			      </div>
+			    <% end %>
+			    <%= link_to_add_association 'Adicionar telefone', f, :phones, class: 'btn btn-primary' %>
+			  </div>
+  		</div>
+  	</div>
+  </div>
+	<hr>
+  <div class="form-actions">
+    <%= f.button :submit, class: 'btn btn-primary' %>
+  </div>
+<% end %>

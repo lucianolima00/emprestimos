@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Clientes</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @clients.each do |client| %>
+      <tr>
+        <td><%= client.name %></td>
+        <td>
+          <div class="btn-group pull-right btn-group-sm">
+            <%= link_to 'Exibir', client, class: 'btn btn-default' %>
+            <%= link_to 'Editar', edit_client_path(client), class: 'btn btn-default' %>
+            <%= link_to 'Excluir', client, method: :delete, data: { confirm: 'Tem certeza?' }, class: 'btn btn-danger' %>
+          </div>
+      </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Cadastrar Cliente', new_client_path, class: 'btn btn-primary' %>

@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<h1><%= @client.name %></h1>
+<p>
+  <strong>Endereço:</strong>
+  <%= @client.address %>
+</p>
+
+<p>
+  <strong>Endereço do trabalho:</strong>
+  <%= @client.work_address %>
+</p>
+
+
+<% if @client.phones.any? %>
+	<h2>Telefones</h2>
+	<ul>
+		<% @client.phones.each do |phone| %>
+			<li><%= phone.number %></li>
+		<% end %>
+	</ul>
+<% end %>
+
+<%= link_to 'Voltar', clients_path, class: 'btn btn-primary' %>
+<%= link_to 'Editar', edit_client_path(@client), class: 'btn btn-default' %>
