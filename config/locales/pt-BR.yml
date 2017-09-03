@@ -10,6 +10,7 @@ pt-BR:
     models:
       client: Cliente
       phone: Telefone
+      loan: Empréstimo
     attributes:
       client:
         name: Nome
@@ -17,6 +18,11 @@ pt-BR:
         work_address: Endereço do trabalho
       phone:
         number: Número
+      loan:
+        client: Cliente
+        value: Valor
+        payment_day: Dia do vencimento
+        interest_rate: Taxa de juros
   date:
     abbr_day_names:
     - Dom

@@ -1,24 +1,27 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Client:</strong>
-  <%= @loan.client %>
+  <strong>Cliente:</strong>
+  <%= @loan.client.name %>
 </p>
 
 <p>
-  <strong>Value:</strong>
-  <%= @loan.value %>
+  <strong>Valor capital:</strong>
+  <%= number_to_currency @loan.value %>
 </p>
 
 <p>
-  <strong>Payment day:</strong>
+	<strong>Valor juros</strong>
+	<%= number_to_currency @loan.interest %>
+</p>
+<p>
+  <strong>Dia do vecimento:</strong>
   <%= @loan.payment_day %>
 </p>
 
 <p>
-  <strong>Interest rate:</strong>
-  <%= @loan.interest_rate %>
+  <strong>Taxa de juros:</strong>
+  <%= @loan.interest_rate %>%
 </p>
 
-<%= link_to 'Edit', edit_loan_path(@loan) %> |
-<%= link_to 'Back', loans_path %>
+<!-- <%= link_to 'Editar', edit_loan_path(@loan), class: 'btn btn-primary' %> -->

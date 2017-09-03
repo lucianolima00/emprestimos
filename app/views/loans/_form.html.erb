@@ -2,13 +2,32 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.association :client %>
-    <%= f.input :value %>
-    <%= f.input :payment_day %>
-    <%= f.input :interest_rate %>
+    <div class="row">
+      <div class="col-xs-12">
+        <%= f.association :client, collection: Client.order(name: :asc) %>
+      </div>
+      <div class="col-xs-12 col-sm-4">
+        <%= f.input :value, wrapper: :vertical_input_group do %>
+          <span class="input-group-addon">R$</span>
+          <%= f.input_field :value, class: "form-control", placeholder: '0.00' %>
+        <% end %>
+
+      </div>
+      <div class="col-xs-12 col-sm-4">
+        <%= f.input :payment_day, input_html: {value: Date.today.day} %>    
+      </div>
+      <div class="col-xs-12 col-sm-4">
+        <%= f.input :interest_rate, wrapper: :vertical_input_group do %>
+          <%= f.input_field :interest_rate, class: "form-control", value: '10' %>
+          <span class="input-group-addon">%</span>
+        <% end %>
+      </div>
+    </div>
+    
+    
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit %>
+    <%= f.button :submit, class: 'btn btn-primary' %>
   </div>
 <% end %>
